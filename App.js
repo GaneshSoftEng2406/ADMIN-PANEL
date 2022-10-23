@@ -13,7 +13,8 @@ export default class App extends react.Component{
         }
     }
     async componentDidMount(){
-      let resopnse=await axios.get('https://gist.githubusercontent.com/hmdlohar/a1ae4c3408b79fc82ab3f0af922b1f09/raw/270b29ce63b885df6d2851b71af6db9ccf5e72b9/Edyoda%2520Assigment%25201%2520Data')
+    //   let resopnse=await axios.get('https://gist.githubusercontent.com/hmdlohar/a1ae4c3408b79fc82ab3f0af922b1f09/raw/270b29ce63b885df6d2851b71af6db9ccf5e72b9/Edyoda%2520Assigment%25201%2520Data')
+      let resopnse=await axios.get('http://www.filltext.com/?rows=32&id=%7Bnumber%7C1000%7D&firstName=%7BfirstName%7D&lastName=%7BlastName%7D&email=%7Bemail%7D&phone=%7Bphone%7C(xxx)xxx-xx-xx%7D&address=%7BaddressObject%7D&description=%7Blorem%7C32%7D')
       this.setState({ users:resopnse.data})
       this.setState({ filterArr:resopnse.data})
 
@@ -46,7 +47,7 @@ export default class App extends react.Component{
         this.setState({filterArr:filterSet,searchingValue:find})
     }
   render(){
-      let address={},name='Name...... ',desc=' About the person ......'
+      let address={},name='',desc=''
       if(this.state.activeItem!==-1){
           address=this.state.activeItem.address;
           name=this.state.activeItem.firstName+' '+this.state.activeItem.lastName;
